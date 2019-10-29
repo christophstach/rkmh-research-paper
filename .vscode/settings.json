@@ -23,14 +23,6 @@
         "**/*.synctex.gz": true,
         "_minted-main": true
     },
-    "spellright.language": [
-        "German_de_DE"
-    ],
-    "spellright.documentTypes": [
-        "markdown",
-        "plaintext",
-        "latex"
-    ],
     "latex-workshop.latex.autoBuild.run": "never",
     "editor.wordWrap": "wordWrapColumn",
     "actionButtons": {
@@ -44,5 +36,19 @@
                 "singleInstance": true,
             },
         ]
-    }
+    },
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "spellright.language": [
+        "de_DE",
+        "en_US"
+    ],
+    "spellright.ignoreFiles": [
+        "**/.gitignore",
+        "**/.spellignore",
+    ],
+    "spellright.recheckOnSave": true,
 }
