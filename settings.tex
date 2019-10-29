@@ -1,0 +1,44 @@
+% \documentclass[conference]{IEEEtran}
+\documentclass[conference,compsoc]{IEEEtran}
+% \documentclass[journal]{IEEEtran}
+% \documentclass[10pt,journal,compsoc]{IEEEtran}
+% \documentclass[journal,comsoc]{IEEEtran}
+% \documentclass[journal,transmag]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{ifpdf}
+
+\ifCLASSOPTIONcompsoc
+  \usepackage[nocompress]{cite}
+\else
+  \usepackage{cite}
+\fi
+
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{graphicx}
+  \graphicspath{{../pdf/}{../jpeg/}}
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  \usepackage[dvips]{graphicx}
+  \graphicspath{{../eps/}}
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+\usepackage{amsmath}
+\usepackage{algorithmic}
+\usepackage{array}
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+\ifCLASSOPTIONcompsoc
+  \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+\else
+  \usepackage[caption=false,font=footnotesize]{subfig}
+\fi
+
+\usepackage{stfloats}
+\usepackage{url}
