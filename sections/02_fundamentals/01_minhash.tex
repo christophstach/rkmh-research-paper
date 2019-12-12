@@ -1,6 +1,22 @@
 \subsection{MinHash}
 \label{ssec:minhash}
 
-MinHashing is a often used technique to compare big datasets. I is used in data-mining and was first applied by \citeauthor{minhash} to compare a large corpus of crawled web pages \cite{minhash}. It works by reducing the dimensionality of squeences (also often called documents). The algorithm assignes a signature to a documente. That signatures capture the res
+MinHashing is a often used technique to compare big datasets. I is used in data-mining and was first applied by \citeauthor{minhash} to compare a large corpus of crawled web pages \cite{minhash}. It works by reducing the dimensionality of sequences (also often called documents). The algorithm assigns a signature to a document. These signature signatures have the property to reflect the similarity of the documents.\\
+
+Given two documents $ A = "abccdab" $ and $ B = "bccdacb" $. The documents are first converted into a sets of shingles with the size of $ k $. For $ k = 3 $ the resulting sets are: \\
+
+\begin{equation}
+    \begin{split}
+        S_k(A) = \{abc, bcc, ccd, cda, dab\} \\
+        S_k(B) = \{bcc, ccd, cda, dac, acb\} \\
+        S_k(A) \cup S_k(b) = \{abc, bcc, ccd, cda, dab, dac, acb\}
+    \end{split}
+\end{equation}\\
+
+Documents and shingles can now be represented as sparse a matrix, where the shingles are the rows and the documents the columns.
+
+
+
+
 
 % Hier weitermachen
