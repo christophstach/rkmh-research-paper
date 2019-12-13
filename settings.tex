@@ -10,16 +10,8 @@
 % \usepackage[ngerman]{babel}
 \usepackage{ifpdf}
 \usepackage[numbers]{natbib}
-
-\ifCLASSINFOpdf
-  \usepackage[pdftex]{graphicx}
-  \graphicspath{{../pdf/}{../jpeg/}}
-  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
-\else
-  \usepackage[dvips]{graphicx}
-  \graphicspath{{../eps/}}
-  \DeclareGraphicsExtensions{.eps}
-\fi
+\usepackage{svg}
+\usepackage{graphicx}
 
 \usepackage{amsmath}
 \usepackage{algorithmic}
