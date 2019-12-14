@@ -1,7 +1,9 @@
 \subsection{MinHash}
 \label{ssec:minhash}
 
-MinHashing is a often used technique to compare big datasets. I is used in data-mining and was first applied by \citeauthor{minhash} to compare a large corpus of crawled web pages \cite{minhash}. It works by reducing the dimensionality of sequences (also often called documents). The algorithm assigns a signature to a document. These signature signatures have the property to reflect the similarity of the documents.\\
+MinHashing is a often used technique to compare big datasets. I is used in data-mining and was first applied by \citeauthor{minhash} to compare a large corpus of crawled web pages \cite{minhash}. It works by reducing the dimensionality of sequences (also often called documents). The algorithm assigns a signature to a document. These signature signatures have the property to reflect the similarity of the documents. \\
+
+\subsubsection{Shingling}
 
 Given two documents $ A = "abccdab" $ and $ B = "bccdacb" $. The documents are first converted into a sets of shingles with the size of $ k $. For $ k = 3 $ the resulting sets are: \\
 
@@ -9,11 +11,46 @@ Given two documents $ A = "abccdab" $ and $ B = "bccdacb" $. The documents are f
     \begin{split}
         S_k(A) = \{abc, bcc, ccd, cda, dab\} \\
         S_k(B) = \{bcc, ccd, cda, dac, acb\} \\
-        S_k(A) \cup S_k(b) = \{abc, bcc, ccd, cda, dab, dac, acb\}
+        S_k(A) \cup S_k(B) = \{abc, bcc, ccd, cda, dab, dac, acb\}
     \end{split}
 \end{equation}\\
 
-Documents and shingles can now be represented as sparse a matrix, where the shingles are the rows and the documents the columns.
+Documents and shingles can now be represented as a sparse matrix, where the shingles are the rows and the documents the columns. The computed Jaccard coeeficcient of A and B is  $ J(S_k(A),S_k(B)) = \frac{3}{7} \approx 0.43 $.\\
+
+\subsubsection{Matrix representation}
+
+For the purpose of this algorithm we build a sparse matrix of all shingles of the union of $ S_k(A) $ and $ S_k(B) $. Instead of writing the shingles directly to the matrix, we write a $ 1 $ if the shingle occurs in the document otherwise we write a $ 0 $. With the data from the previuose this leads to a the matrix representation $ M $. The columns represent a document and the rows the shingles. \\
+
+\begin{equation}
+    \begin{split}
+        P = 
+        \begin{pmatrix}
+            0 & 3 & 5 & 4 \\
+            1 & 6 & 4 & 1 \\
+            2 & 2 & 1 & 2 \\
+            3 & 5 & 3 & 6 \\
+            4 & 1 & 2 & 3 \\
+            5 & 0 & 0 & 5 \\
+            6 & 4 & 6 & 0
+        \end{pmatrix}
+        M = 
+        \begin{pmatrix}
+            1 & 0 \\
+            1 & 1 \\
+            1 & 1 \\
+            1 & 1 \\
+            1 & 0 \\
+            0 & 1 \\
+            0 & 1
+        \end{pmatrix}   
+    \end{split}
+\end{equation} \\
+
+Also we store a matrix $ P $ of random permutations of the row indecies. We use them to generate the signature for the columns on the next step\\  
+
+
+
+\subsubsection{Generation of a signature}
 
 
 
