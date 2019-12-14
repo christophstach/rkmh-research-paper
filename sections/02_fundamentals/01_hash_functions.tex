@@ -14,6 +14,6 @@ A hash function $ h $ is a usually quickly to compute function which takes  item
     \end{tabular}   
 \end{table}
     
-In the example above we assign signatures to the items of the set $ S = \{ 10,11,30,41 \} $. As hash a function serves $ h(x) = (2x+1) \mod 6 $.  In this case $ n $ is $ 6 $ and the numbers $ 11 $ and $ 41 $ get the same signature assigned, which leads to a collision.\\
+In the example above the hash function $ h(x) = (2x+1) \mod 6 $ assigns signatures to the elements of set $ S = \{ 10,11,30,41 \} $.  In this case $ n $ is $ 6 $ and the numbers $ 11 $ and $ 41 $ get the same signature assigned, which leads to a collision.\\
 
 Hash functions exist for different purposes. There are many used in the field cryptographics \cite{cryptographicHashFunctions}, which try to avoid collisions. But also non-cryptographic hash function are available, which do not share this property. The second kind of hash function is used in dimensionality reduction and similarity estimation of datasets \cite{practicalHashFunctions}.\\

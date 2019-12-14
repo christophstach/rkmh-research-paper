@@ -1,7 +1,7 @@
 \subsection{MinHash}
 \label{ssec:minhash}
 
-MinHashing is a often used technique to compare big datasets. I is used in data-mining and was first applied by \citeauthor{minhash} to compare a large corpus of crawled web pages \cite{minhash}. It works by reducing the dimensionality of sequences (also often called documents). The algorithm assigns a signature to a document. These signature signatures have the property to reflect the similarity of the documents. \\
+MinHashing is a often used technique to compare big datasets. In the field data-mining \citeauthor{minhash} first applied it to compare a large corpus of crawled web pages \cite{minhash}. It works by reducing the dimensionality of sequences (in the context of web pages often called documents). The algorithm assigns a signature to a document. A signature has the property to reflect the similarity of documents. \\
 
 \subsubsection{Shingling}
 
@@ -15,23 +15,23 @@ Given two documents $ A = "abccdab" $ and $ B = "bccdacb" $. The documents are f
     \end{split}
 \end{equation}\\
 
-Documents and shingles can now be represented as a sparse matrix, where the shingles are the rows and the documents the columns. The computed Jaccard coefficient of A and B is  $ J(S_k(A),S_k(B)) = \frac{3}{7} \approx 0.43 $.\\
+Documents and shingles represent a sparse matrix, where the shingles are the rows and the documents the columns. The computed Jaccard coefficient of A and B is  $ J(S_k(A),S_k(B)) = \frac{3}{7} \approx 0.43 $.\\
 
 \subsubsection{Matrix representation}
 
-For the purpose of this algorithm we build a sparse matrix of all shingles of the union of $ S_k(A) $ and $ S_k(B) $. Instead of writing the shingles directly to the matrix, we write a $ 1 $ if the shingle occurs in the document otherwise we write a $ 0 $. With the data from the previous example this leads to  the matrix representation $ M $. Each column represents a document and each rows a shingle. \\
+Let the union of $ S_k(A) $ and $ S_k(B) $ represent the rows of a sparse matrix and the documents the columns. Each cell of the matrix is a $ 1 $ if the shingle occurs in the document otherwise the cell is $ 0 $. With the data from the previous example this leads to the following matrix representation $ M $.\\
 
 \begin{equation}
     \begin{split}
         P = 
         \begin{pmatrix}
-            0 & 3 & 5 & 4 \\
-            1 & 6 & 4 & 1 \\
-            2 & 2 & 1 & 2 \\
-            3 & 5 & 3 & 6 \\
-            4 & 1 & 2 & 3 \\
-            5 & 0 & 0 & 5 \\
-            6 & 4 & 6 & 0
+            0 & 3 & 5 & 4 & 4 \\
+            1 & 6 & 4 & 1 & 0 \\
+            2 & 2 & 1 & 2 & 3 \\
+            3 & 5 & 3 & 6 & 1 \\
+            4 & 1 & 2 & 3 & 6 \\
+            5 & 0 & 0 & 5 & 2 \\
+            6 & 4 & 6 & 0 & 5
         \end{pmatrix}
         M = 
         \begin{pmatrix}
@@ -46,14 +46,30 @@ For the purpose of this algorithm we build a sparse matrix of all shingles of th
     \end{split}
 \end{equation} \\
 
-Also we store a matrix $ P $ of random permutations of the row indices. We use them to generate the signature for the columns on the next step.\\  
-
-
+Let matrix $ P $ a matrix of random permutations of row indices. It serves in the next step to generate the signature for the columns in the next step.\\
 
 \subsubsection{Generation of a signature}
 
+With the permutations $ P $ it is possible to generate a signature of a column, in other words for each document. $ Sig(C, P) $ takes the index of the first row which is $ 1 $ for the column in the permuted order. This generates a signature for each column $ C $ in the length of the number permutations. Given the data of the example above it generates the following signature matrix. \\
 
+\begin{equation}
+    Sig(C, P) = 
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & 0 \\
+        1 & 1 \\
+        1 & 1 \\
+        1 & 1
+    \end{pmatrix}
+\end{equation} \\
 
+Counting the overlapping components of the signatures matrix and dividing it by the total number of components results in a value wich estimates the Jaccard coefficient. For this example the estimated Jaccard coefficient is $ \frac{2}{5} = 0.4 $ which is fairly close to the real one with a value of $ \frac{3}{7} \approx 0.43 $
+
+\subsubsection{Using hash functions instead of permutations}
+
+Using different permutations of the row indices takes space in memory. For long signatures and a lot of shingles the space needed for storing the permutations can be immense. To overcome this problem it is possible to take different hash functions and use them for signature generation. \\
+
+TODO: Demonstrate usage of simple hash functions
 
 
 % Hier weitermachen
