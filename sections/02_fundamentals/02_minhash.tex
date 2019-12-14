@@ -15,11 +15,11 @@ Given two documents $ A = "abccdab" $ and $ B = "bccdacb" $. The documents are f
     \end{split}
 \end{equation}\\
 
-Documents and shingles can now be represented as a sparse matrix, where the shingles are the rows and the documents the columns. The computed Jaccard coeeficcient of A and B is  $ J(S_k(A),S_k(B)) = \frac{3}{7} \approx 0.43 $.\\
+Documents and shingles can now be represented as a sparse matrix, where the shingles are the rows and the documents the columns. The computed Jaccard coefficient of A and B is  $ J(S_k(A),S_k(B)) = \frac{3}{7} \approx 0.43 $.\\
 
 \subsubsection{Matrix representation}
 
-For the purpose of this algorithm we build a sparse matrix of all shingles of the union of $ S_k(A) $ and $ S_k(B) $. Instead of writing the shingles directly to the matrix, we write a $ 1 $ if the shingle occurs in the document otherwise we write a $ 0 $. With the data from the previuose this leads to a the matrix representation $ M $. The columns represent a document and the rows the shingles. \\
+For the purpose of this algorithm we build a sparse matrix of all shingles of the union of $ S_k(A) $ and $ S_k(B) $. Instead of writing the shingles directly to the matrix, we write a $ 1 $ if the shingle occurs in the document otherwise we write a $ 0 $. With the data from the previous example this leads to  the matrix representation $ M $. Each column represents a document and each rows a shingle. \\
 
 \begin{equation}
     \begin{split}
@@ -46,7 +46,7 @@ For the purpose of this algorithm we build a sparse matrix of all shingles of th
     \end{split}
 \end{equation} \\
 
-Also we store a matrix $ P $ of random permutations of the row indecies. We use them to generate the signature for the columns on the next step\\  
+Also we store a matrix $ P $ of random permutations of the row indices. We use them to generate the signature for the columns on the next step.\\  
 
 
 
