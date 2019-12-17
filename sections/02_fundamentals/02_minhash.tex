@@ -56,5 +56,5 @@ To generate the signature matrix $ S $ of the columns, $ M $ is ordered by the f
 
 Counting the overlapping components of the signatures matrix and dividing it by the total number of components results in a value wich estimates the Jaccard coefficient. For this example the estimated Jaccard coefficient is $ \frac{2}{5} = 0.4 $ which is fairly close to the real one with a value of $ \frac{3}{7} \approx 0.43 $.\\
 
-The problem with this approach is that generating and storing the permutations $ P $ can take a lot of space in memory for large datasets. Also sorting the complete matrix for each permutations is a time consuming task. These problems can be overcome by using hash functions instead of permutations. The next section describes how hash functions work. Afterwards the author demonstrates wich an example how they can be used to skip permutation generation and sorting.\\
+The problem with this approach is that generating and storing the permutations $ P $ can take a lot of space in memory for large datasets. Also sorting the complete matrix for each permutations is a time consuming task. These problems can be overcome by using hash functions instead of permutations. The next section describes how hash functions work. Afterwards the author explains they can be used in the process of permutation generation.\\
 
