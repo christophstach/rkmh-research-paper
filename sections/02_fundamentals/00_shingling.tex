@@ -1,0 +1,15 @@
+\subsection{Shingling}
+
+The first step of comparing two documents is generate the shingles $ S_k $ of each document. Given two documents $ A = "abccdab" $ and $ B = "bccdacb" $. The documents are  converted into a sets of shingles with the size of $ k $. For $ k = 3 $ the resulting sets are: \\
+
+\begin{equation}
+    \begin{split}
+        S_3(A) = \{abc, bcc, ccd, cda, dab\} \\
+        S_3(B) = \{bcc, ccd, cda, dac, acb\} \\
+        S_3(A) \cup S_3(B) = \{abc, bcc, ccd, cda, dab, dac, acb\}
+    \end{split}
+\end{equation}\\
+
+In text mining literature often talks about the generation of k-shingles or k-grams of a document. In bio informatics the same idea applies to the generation of k-mers of a DNA sequence.
+
+Shingling documents makes them better comparable, which is done in the text step.

@@ -1,0 +1,25 @@
+\subsection{Hash functions}
+A hash function $ h $ is a usually quickly to compute function which takes  elements of any set $ S $ and maps it to a fixed size number $ n $, the so called hash. The hash's upper bound is fixed by $ n $. Having enough elements in $ S $, it can happen that the same hash is assigned different elements. This leads to a so called collision and elements are not distinguishable anymore.\\
+
+In the example the hash function $ h(x) = (2x+1) \mod 6 $ assigns hashes to the elements of set $ S = \{ 10,11,30,41 \} $.  In this case $ n $ is $ 6 $ and the numbers $ 11 $ and $ 41 $ get the same hash assigned, which leads to a collision.\\
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | c | c | c | c |}
+        \hline
+        \textbf{Hash} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5}  \\
+        \hline
+        \multirow{2}{*}{\textbf{Elements}}   & 30 &    & 10 &    & 11 & \\
+        &    &    &    &    & 41  &\\
+        \hline
+    \end{tabular}    
+    \caption{Hash table of set $ S $. Each element of $ S $ has a different  hash with some colliding with each other.}
+\end{table}
+
+Hash functions exist for different purposes. User passwords of websites get often stored as hash instead of writing the clear text password to the database \cite{cryptographicHashFunctions}. They are also used to identify documents on a file system or in the field of text mining for dimensionality reduction \cite{practicalHashFunctions}.\\
+
+In the next section the author describes how to use hash functions to overcome the generation of permutations of row indices, which are used by the MinHash algorithm.\\
+
+\subsubsection{Overcoming the permutation problem of MinHashing with hash functions}
+
+TODO: Hier gehts weiter
