@@ -1,7 +1,11 @@
+\newpage
+
 \section{Rkmh}
 
-The rkmh toolkit uses the MinHash algorithm to convert reads (documents in context of text mining) to sketches (signatures in context of text mining). It first uses MurmurHash3, non-cryptographic hash function, to convert k-mers (k-shingles / k-grams in the context of text mining) to 64bit integer values. Before generating the sketch-signature, rkmh uses different kind of filters to the reduce the number of hashes the sketch is calculated of.\\
+The rkmh toolkit uses the MinHash algorithm to convert reads (documents in context of text mining) to sketches (signatures in context of text mining). It first uses MurmurHash3 \cite{murmurHash}, a non-cryptographic hash function, to convert k-mers (k-shingles / k-grams in the context of text mining) to 64bit integer values. Before generating the sketch-signature, rkmh uses different kind of filters to the reduce the number of hashes the sketch is calculated of.\\
 
 Rkmh offers different filters. It can remove hashes that total number of occurrences doesn't meet a defined threshold. Seldom occurring hashes are prone to be sequencing errors. Also k-mers that occur to many times can be filtered, because they are shared by many DNA sequences and are not informative for classifying.\\
 
-More filters are available and are described in the original paper \cite{rkmh}. By providing the different filters the number of hashes the sketch is calculated of can be reduced by a great amount. This has positive impact on the performance of the toolkit. The authors state that classification can be done within minutes on a standard laptop.
+More filters are available and are described in the original paper \cite{rkmh}. By providing the different filters the number of hashes the sketch is calculated of can be reduced by a great amount. This has positive impact on the performance of the toolkit. The authors state that classification can be done within minutes on a standard laptop.\\
+
+Rkmh assigns each read it analyzes with a possibility to one or more reference genomes. TODO: Bisschen mehr hier schreiben.

@@ -2,11 +2,14 @@
 \label{ssec:minhash}
 
 MinHashing is a often used technique to compare big datasets. In the field text mining \citeauthor{minhash} first applied it to compare a large corpus of crawled web pages \cite{minhash}. It works by reducing the dimensionality of sequences (in the context of web pages often called documents). The algorithm assigns a signature to each document. The goal is that similar documents share similar signatures. Comparing two signatures approximates the Jaccard coefficient and can be done in a fraction of time than calculating the actual jaccard coefficient. Also the field bio informatics deals wich large numbers of sequences. Making them quickly comparable is therefore highly beneficial. \\
+
 To generate the signature of a document, it first needs to be stored in a more compact form.
 
 \subsubsection{Matrix representation}
 
 Let the union of the shingled documents $ S_k(A) $ and $ S_k(B) $ represent the rows of a matrix and the documents the column. An element of the matrix is $ 1 $ if the shingle occurs in the document otherwise the element is $ 0 $. This typically leads to a sparse matrix, where most of the elements in the matrix are $ 0 $. Though in this example the matrix is not sparse. The data from the previous example represents the matrix $ M $. Also a matrix $ P $ of random permutations of row indices needs to be generated.\\
+
+\newpage
 
 \begin{equation}
     \begin{split}
@@ -41,7 +44,7 @@ A signature represents a document. In the field of bio informatics, literature t
 
 With the permutations $ P $ generated before, it is possible to calculate a signature for each column.\\
 
-To generate the signature matrix $ S $ of the columns, $ M $ is ordered by the first random permutations in $ P $. For each column in $ M $, the first row index in which the element is $ M $ is taken for the new signature matrix $ S $. This creates the matrix $ S $ with the same number of columns like $ M $ and the same number of rows like the number of columns of $ P $. Each column now represents a MinHash value for a document.\\
+To generate the signature matrix $ S $ of the columns, $ M $ is ordered by the first random permutations in $ P $. For each column in $ M $, the first row index in which the element is $ 1 $ is taken for the new signature matrix $ S $. This process is repeated for all permutations in $ P $.  It creates the matrix $ S $ with the same number of columns like $ M $ and the same number of rows like the number of columns of $ P $. Each column in $ S $ now represents a MinHash value for a document.\\
 
 \begin{equation}
     S = 
