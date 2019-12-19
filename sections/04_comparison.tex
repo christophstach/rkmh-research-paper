@@ -1,6 +1,10 @@
 \section{Comparison with other algorithms}
 
 
-Rkmh builds up on the on mash \cite{mash}.
+BLAST (Basic Local Alignment Search Tool) \cite{blast} finds regions of similarity between biological sequences. It was developed in 1990 and databases of biological sequences were much smaller. Today new sequencing technology produces a lot of more data. Researches are striving to develop new tools to handle this increase.\\
 
-TODO: compare to Mash \cite{mash} and Sourmash \cite{sourmash} from a technical point of view.\\
+Mash \cite{mash} uses MinHashing to reduce large biological sequences to small sketches. By comparing sketches pairwise, mutation distances between sequences can be estimated. This enables clustering and searching a huge sequences sets.\\
+
+Rkmh builds up on the on mash \cite{mash}. It uses MinHashing and extends Mash by adding different filters.\\
+
+Sourmash \cite{sourmash} als uses MinHashing. It is designed to facilitate containment and similarity queries for taxonomic exploration within a large datasets.\\\

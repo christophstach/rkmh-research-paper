@@ -4,11 +4,20 @@ A hash function $ h $ is a usually quickly to compute function which takes  elem
 
 In the example the hash function $ h(x) = (2x+1) \mod 6 $ assigns hashes to the elements of set $ S = \{ 10,11,30,41 \} $.  In this case $ n $ is $ 6 $ and the numbers $ 11 $ and $ 41 $ get the same hash assigned, which leads to a collision.\\
 
+\begin{equation}
+    \begin{split}
+        h(10) = (2 * 10 + 1) \mod 6 = 3  \\
+        h(11) = (2 * 11 + 1) \mod 6 = 5 \\
+        h(30) = (2 * 30 + 1) \mod 6 = 1 \\
+        h(41) = (2 * 41 + 1) \mod 6 = 5
+    \end{split}
+\end{equation}\\
+
 \begin{table}[H]
     \centering
     \begin{tabular}{| c | c | c | c | c | c | c |}
         \hline
-        \textbf{Hash} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5}  \\
+        \textbf{Hash} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6}  \\
         \hline
         \multirow{2}{*}{\textbf{Elements}}   & 30 &    & 10 &    & 11 & \\
         &    &    &    &    & 41  &\\
@@ -23,4 +32,4 @@ In the next section the author describes how to use hash functions to skip the g
 
 \subsubsection{Overcoming the permutation problem of MinHashing with hash functions} Instead of using different permutations of row indices it is also possible to use different hash functions. Hashing all the shingles of set $ S $ to numerical values and sorting them afterwards, will organize the shingles in a pseudorandom order without story the permutation in memory. The only caveat is that some shingles will produce a hash collision. Though this will hardly carry any weight on generating the end result \cite{minhash}.\\
 
-Another solution is to hash the shingles with a appropriate hash function to a fixed size number $ n $. This creates collisions but reduces also the space the permutations take in memory. The author of the original publication \cite{minhash}, recommend using Rabin fingerprints \cite{rabinFingerprinting}, which spread the hashed elements equally and very densely over the available space of $ n $.
+Another solution is to hash the shingles with a appropriate hash function to a fixed size number $ n $. This creates collisions but reduces also the space the permutations take in memory. The author of the original publication \cite{minhash}, recommend using Rabin fingerprints \cite{rabinFingerprinting}, which spread the hashed elements equally and very densely over the available space of $ n $.\\
