@@ -1,12 +1,12 @@
 \subsection{Jaccard coefficient}
 
-The Jaccard coefficient is a metric which measures the similarity of two sets. In the previous step two documents were shingled. That created the two sets of shingles of the document. It is now possible to compare these sets and calculate the jaccard coefficient to get a metric of similarity.\\
+The Jaccard coefficient (also called intersection over union), is a metric which measures the similarity of two sets. In the previous step two documents were shingled. That resulted in two sets of shingles of the documents. Now it is possible to compare these two sets and calculate the jaccard coefficient to get a metric of similarity.\\
 
 \begin{equation}
     J(A,B) = \frac{ | A \cap B | }{ | A \cup B | }
 \end{equation} \\
 
-The jaccard coefficient is calculated by counting the intersection of $ A $ and $ B $ and dividing it by the count of union of $ A $ and $ B $. The result is a rational number between $ 0 $ and $ 1 $, where numbers close to $ 1 $ mean that the compared sets are similar. Having two sets which are completely equal generate a jaccard coefficient of $ 1 $.\\
+The jaccard coefficient is calculated by counting the intersection of $ A $ and $ B $ and dividing it by the count of the union of $ A $ and $ B $. The result is a rational number between $ 0 $ and $ 1 $, where numbers close to $ 1 $ mean that the compared sets are similar. Having two sets which are completely equal generate a jaccard coefficient of $ 1 $.\\
 
 \begin{figure}[H]
     \centering
@@ -17,5 +17,5 @@ The jaccard coefficient is calculated by counting the intersection of $ A $ and 
 
 The computed Jaccard coefficient of A and B is  $ J(S_3(A),S_3(B)) = \frac{3}{7} \approx 0.43 $.\\
 
-Calculating the Jaccard coefficient for two sets and a total of $ n $ items has a complexity of $ O(n^2) $. For high dimensional sets, sets that contain a lot of items, which have therefor a large $ n $, this can be a time consuming task.\\
+Calculating the Jaccard coefficient of two sets and a total number of $ n $ items has a complexity of $ O(n^2) $. For high dimensional sets, sets that contain a lot of items, which have therefor a large $ n $, it is a time consuming task.\\
 
