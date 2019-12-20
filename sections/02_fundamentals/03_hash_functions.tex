@@ -1,8 +1,7 @@
 \subsection{Hash functions}
-A hash function $ h $ is a usually quickly to compute function which takes  elements of any set $ S $ and maps it to a fixed size number $ n $, the so called hash. The hash's upper bound is fixed by $ n $. Having enough elements in $ S $, it can happen that the same hash is assigned to different elements. This leads to a collision and elements are not distinguishable anymore.\\
+A hash function $ h $ is a usually quickly to compute function which takes  elements of any set $ S $ and maps it to a fixed size number $ n $, the so called hash. The hash's upper bound is fixed by $ n $. Having enough elements in $ S $, it can happen that the same hash is assigned to different elements. This leads to a collision and elements are are no longer distinguishable.\\
 
-
-In the example the hash function $ h(x) = (2x+1) \mod 6 $ assigns hashes to the elements of set $ S = \{ 10,11,30,41 \} $.  In this case $ n $ is $ 6 $ and the numbers $ 11 $ and $ 41 $ get the same hash assigned, which leads to a collision.\\
+In the example, the hash function $ h(x) = (2x+1) \mod 6 $ assigns hashes to the elements of set $ S = \{ 10,11,30,41 \} $.  In this case, $ n $ is $ 6 $ and the numbers $ 11 $ and $ 41 $ get the same hash assigned, which leads to a collision.\\
 
 \begin{equation}
     \begin{split}
@@ -30,6 +29,6 @@ Hash functions exist for different purposes. User passwords of websites are ofte
 
 In the next section the author describes how to use hash functions to skip the generation of permutations of row indices, which are used by the MinHash algorithm.\\
 
-\subsubsection{Overcoming the permutation problem of MinHashing with hash functions} Instead of using different permutations of row indices it is also possible to use different hash functions. Hashing all the shingles of set $ S $ to numerical values and sorting them afterwards, will organize the shingles in a pseudorandom order without storing the permutation in memory. The only caveat is that some shingles will produce a hash collision. Though this will hardly carry any weight on generating the end result \cite{minhash}.\\
+\subsubsection{Overcoming the permutation problem of MinHashing with hash functions} Instead of using different permutations of row indices, it is also possible to use different hash functions. Hashing all the shingles of set $ S $ to numerical values and sorting them afterwards, will organize the shingles in a pseudorandom order without storing the permutation in memory. The only caveat is that some shingles will produce a hash collision. Though this will hardly carry any weight on generating the end result \cite{minhash}.\\
 
 Another solution is to hash the shingles with a appropriate hash function to a fixed size number $ n $. This creates collisions but reduces also the space the permutations take in memory. The author of the original publication \cite{minhash}, recommend using Rabin fingerprints \cite{rabinFingerprinting}, which spread the hashed elements equally and very densely over the available space of $ n $.\\
